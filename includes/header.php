@@ -10,9 +10,9 @@
     <nav class="flex items-center justify-between px-20 py-1 bg-yellow-600 text-white">
         <img src="assets/logo.png" alt="" class="h-12">
         <ul class="flex gap-3">
-            <li><a href="">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="">About</a></li>
             <li><a href="">Contact</a></li>
-            <li><a href="">Login</a></li>
+            <li><a href="login.php">Login</a></li>
         </ul>
     </nav>
