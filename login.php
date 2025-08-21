@@ -31,22 +31,25 @@
 if(isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $error = false;
+    $errormsg = '';
     if(empty($email) || empty($password))
     {
-        echo "<script>
-            errortext.innerText = 'Please fill in all fields';
-            errormsg.classList.remove('hidden');
-        </script>";
-        return;
+        $error = true;
+        $errormsg = 'Please fill in all fields';
     }
     //password must be at least 5
-    if(strlen($password) < 5)
+    if(strlen($password) < 5 && !$error)
     {
+        $error = true;
+        $errormsg = 'Password must be at least 5 characters';
+    }
+
+    if($error){
         echo "<script>
-            errortext.innerText = 'The password must be at least 5 character long';
+            errortext.innerText = '$errormsg';
             errormsg.classList.remove('hidden');
         </script>";
-        return;
     }
 }
 ?>
