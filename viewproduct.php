@@ -11,7 +11,25 @@
             </p>
             <span class="text-xs bg-yellow-600 text-white px-1">20% Off</span>
             <p class="mt-4">In Stock: 5</p>
+            <div class="flex items-center mt-4">
+                <input type="button" value="-" class="bg-gray-200 px-3 py-1 rounded-l-lg cursor-pointer" onclick="decrement()">
+                <input type="text" value="1" id="quantity" class="w-12 text-center bg-gray-100 py-1 " disabled>
+                <input type="button" value="+" class="bg-gray-200 px-3 py-1 rounded-r-lg cursor-pointer" onclick="increment()">
+            </div>
             <button class="bg-yellow-600 text-white py-2 rounded-lg px-4 mt-4">Add to Cart</button>
         </div>
     </div>
+    <script>
+        let stock = 5;
+        let quantity = document.getElementById('quantity');
+        function increment(){
+            if(quantity.value<stock)
+            quantity.value = parseInt(quantity.value) + 1;
+        }
+        function decrement(){
+            if(quantity.value > 1)
+            quantity.value = quantity.value - 1;
+        }
+    </script>
+
 <?php include 'includes/footer.php'; ?>
