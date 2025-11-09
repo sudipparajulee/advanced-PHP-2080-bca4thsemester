@@ -51,5 +51,10 @@ if(isset($_POST['login'])) {
             errormsg.classList.remove('hidden');
         </script>";
     }
+
+    //everything is fine, proceed to login
+    if(!$error){
+        header('Location: admin/dashboard.php');
+    }
 }
 ?>
