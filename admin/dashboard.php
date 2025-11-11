@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <div class="flex">
-        <div class="h-screen w-52 bg-gradient-to-r from-blue-600 to-blue-400 pt-10">
-            <a href="" class="block py-3 px-4 text-xl text-white hover:bg-white hover:text-blue-600">Dashboard</a>
-            <a href="" class="block py-3 px-4 text-xl text-white hover:bg-white hover:text-blue-600">Categories</a>
-            <a href="" class="block py-3 px-4 text-xl text-white hover:bg-white hover:text-blue-600">Products</a>
-            <a href="" class="block py-3 px-4 text-xl text-white hover:bg-white hover:text-blue-600">Users</a>
-            <a href="" class="block py-3 px-4 text-xl text-white hover:bg-white hover:text-blue-600">Orders</a>
-            <a href="" class="block py-3 px-4 text-xl text-white hover:bg-white hover:text-blue-600">Logout</a>
+<?php include 'includes/header.php'; ?>
+    <h2 class="font-bold text-xl">Dashboard</h2>
+    <hr class="h-1 bg-gradient-to-r from-blue-600 to-blue-200 mb-4">
+    <div class="grid grid-cols-4 gap-4">
+        <div class="shadow rounded-2xl p-4 bg-gradient-to-r from-blue-100 to-blue-200">
+            <h3 class="font-semibold text-lg">Total Categories</h3>
+            <p class="text-3xl mt-2">15</p>
+        </div>
+        <div class="shadow rounded-2xl p-4 bg-gradient-to-r from-red-100 to-red-200">
+            <h3 class="font-semibold text-lg">Total Products</h3>
+            <p class="text-3xl mt-2">155</p>
+        </div>
+        <div class="shadow rounded-2xl p-4 bg-gradient-to-r from-green-100 to-green-200">
+            <h3 class="font-semibold text-lg">Total Users</h3>
+            <p class="text-3xl mt-2">100</p>
+        </div>
+        <div class="shadow rounded-2xl p-4 bg-gradient-to-r from-indigo-100 to-indigo-200">
+            <h3 class="font-semibold text-lg">Total Orders</h3>
+            <p class="text-3xl mt-2">234</p>
         </div>
     </div>
-</body>
-</html>
+<?php include 'includes/footer.php'; ?>
