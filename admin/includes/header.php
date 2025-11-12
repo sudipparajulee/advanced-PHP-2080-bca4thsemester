@@ -9,8 +9,8 @@
 <body>
     <div class="flex">
         <div class="h-screen w-52 bg-gradient-to-r from-blue-600 to-blue-400 pt-10">
-            <a href="" class="block py-3 px-4 text-xl text-white hover:bg-white hover:text-blue-600">Dashboard</a>
-            <a href="" class="block py-3 px-4 text-xl text-white hover:bg-white hover:text-blue-600">Categories</a>
+            <a href="dashboard.php" class="block py-3 px-4 text-xl text-white hover:bg-white hover:text-blue-600">Dashboard</a>
+            <a href="categories.php" class="block py-3 px-4 text-xl text-white hover:bg-white hover:text-blue-600">Categories</a>
             <a href="" class="block py-3 px-4 text-xl text-white hover:bg-white hover:text-blue-600">Products</a>
             <a href="" class="block py-3 px-4 text-xl text-white hover:bg-white hover:text-blue-600">Users</a>
             <a href="" class="block py-3 px-4 text-xl text-white hover:bg-white hover:text-blue-600">Orders</a>
