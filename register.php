@@ -18,4 +18,67 @@
         </p>
     </form>
 </div>
+<script>
+    let errortext = document.getElementById('errortext');
+    let errormsg = document.getElementById('errormsg');
+    function hideError()
+    {
+        errortext.innerText = '';
+        errormsg.classList.add('hidden');
+    }
+</script>
 <?php include 'includes/footer.php'; ?>
+<?php 
+if(isset($_POST['register']))
+{
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $address = $_POST['address'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+    $error = false;
+    $errormsg = '';
+
+    if(empty($name) || empty($email) || empty($phone) || empty($address) || empty($password) || empty($confirm_password))
+    {
+        $error = true;
+        $errormsg = 'Please fill in all fields';
+    }
+
+    if(strlen($password) < 5 && !$error)
+    {
+        $error = true;
+        $errormsg = 'Password must be at least 5 characters';
+    }
+
+    if($password !== $confirm_password && !$error)
+    {
+        $error = true;
+        $errormsg = 'Passwords do not match';
+    }
+
+    if($error){
+        echo "<script>
+            errortext.innerText = '$errormsg';
+            errormsg.classList.remove('hidden');
+        </script>";
+    }
+
+    if(!$error){
+        include 'admin/includes/dbconnection.php';
+        $qry = "INSERT INTO users (name, email, phone, address, password) VALUES ('$name', '$email', '$phone', '$address', md5('$password'))";
+        $result = mysqli_query($conn, $qry);
+        if($result){
+            echo "<script>
+                alert('Registration successful! You can now login.');
+                window.location.href = 'login.php';
+            </script>";
+        } else {
+            echo "<script>
+                errortext.innerText = 'Registration failed. Please try again.';
+                errormsg.classList.remove('hidden');
+            </script>";
+        }
+    }
+}

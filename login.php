@@ -54,7 +54,23 @@ if(isset($_POST['login'])) {
 
     //everything is fine, proceed to login
     if(!$error){
-        header('Location: admin/dashboard.php');
+        include 'admin/includes/dbconnection.php';
+        $qry = "SELECT * FROM users WHERE email='$email' and password=md5('$password')";
+        $result = mysqli_query($conn, $qry);
+        if(mysqli_num_rows($result) > 0){
+            $user = mysqli_fetch_assoc($result);
+            //login successful
+            echo "<script>
+                alert('Login successful');
+                window.location.href = 'index.php';
+            </script>";
+        } else {
+            //user not found
+            echo "<script>
+                errortext.innerText = 'User not found';
+                errormsg.classList.remove('hidden');
+            </script>";
+        }
     }
 }
 ?>
