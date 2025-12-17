@@ -67,7 +67,8 @@ if(isset($_POST['register']))
 
     if(!$error){
         include 'admin/includes/dbconnection.php';
-        $qry = "INSERT INTO users (name, email, phone, address, password) VALUES ('$name', '$email', '$phone', '$address', md5('$password'))";
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $qry = "INSERT INTO users (name, email, phone, address, password) VALUES ('$name', '$email', '$phone', '$address', '$hashedPassword')";
         $result = mysqli_query($conn, $qry);
         if($result){
             echo "<script>
@@ -82,3 +83,4 @@ if(isset($_POST['register']))
         }
     }
 }
+?>

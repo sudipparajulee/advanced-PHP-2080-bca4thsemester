@@ -55,19 +55,18 @@ if(isset($_POST['login'])) {
     //everything is fine, proceed to login
     if(!$error){
         include 'admin/includes/dbconnection.php';
-        $qry = "SELECT * FROM users WHERE email='$email' and password=md5('$password')";
+        $qry = "SELECT * FROM users WHERE email='$email'";
         $result = mysqli_query($conn, $qry);
-        if(mysqli_num_rows($result) > 0){
-            $user = mysqli_fetch_assoc($result);
+        $user = mysqli_fetch_assoc($result);
+        $pass = $_POST['password'];
+        if($user && password_verify($pass, $user['password'])){
             //login successful
             echo "<script>
-                alert('Login successful');
-                window.location.href = 'index.php';
+                window.location.href = 'admin/dashboard.php';
             </script>";
         } else {
-            //user not found
             echo "<script>
-                errortext.innerText = 'User not found';
+                errortext.innerText = 'Invalid email or password';
                 errormsg.classList.remove('hidden');
             </script>";
         }
